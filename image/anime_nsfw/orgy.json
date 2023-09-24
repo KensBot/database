@@ -1,26 +1,4 @@
-exports.run = {
-   usage: ['orgy'],
-   category: 'nsfw premium',
-   async: async (m, {
-      client
-   }) => {
-   try {
-   let old = new Date()
-   await client.sendReact(m.chat, '🕒', m.key)
-	client.sendFile(m.chat, `${random(kns)}`, 'kens.jpg', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
-function random(list) {
-  return list[Math.floor(list.length * Math.random())]
-}
-} catch (e) {
-   return client.reply(m.chat, Func.jsonFormat(e))
-   }
-   },
-   error: false,
-   premium: true,
-   limit: true 
-}
-
-const kns = [
+[
     "https://media.discordapp.net/attachments/531827568966631425/683171889190797313/BQY3GFi_d.jpg",
     "https://media.discordapp.net/attachments/531827568966631425/681081380930846726/image-3.jpg",
     "https://media.discordapp.net/attachments/531827568966631425/677196930182283330/image0.jpg",
