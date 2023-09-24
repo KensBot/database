@@ -1,0 +1,24 @@
+const fetch = require('node-fetch');
+
+exports.run = {
+   usage: ['wpgame'],
+   category: 'feature',
+   async: async (m, {
+      client,
+      isPrefix,
+      command
+   }) => {
+   try {
+    let g = await fetch(`https://raw.githubusercontent.com/inirey/RESTAPI/master/data/GameWallp.json`)
+    let old = new Date()
+    let f = await g.json()
+    let a = f[Math.floor(Math.random() * f.length)]
+    await client.sendReact(m.chat, '🕒', m.key)
+    client.sendFile(m.chat, a, 'wpgame.jpg', `🍟 *Fetching* : ${((new Date - old) * 1)} ms`, m)
+} catch (e) {
+    return client.reply(m.chat, global.status.error, m)
+    }
+},
+error: false,
+limit: true
+}
